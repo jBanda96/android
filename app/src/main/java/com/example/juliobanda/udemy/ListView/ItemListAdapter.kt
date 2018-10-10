@@ -1,4 +1,4 @@
-package com.example.juliobanda.udemy.Adapters
+package com.example.juliobanda.udemy.ListView
 
 import android.content.Context
 import android.view.LayoutInflater

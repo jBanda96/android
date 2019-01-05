@@ -9,7 +9,8 @@ import com.example.juliobanda.udemy.R
 import com.example.juliobanda.udemy.YourSecondKotlinAndroidApp.Model.TaskList
 
 
-class ListSelectionRecyclerViewAdapter(private val lists: ArrayList<TaskList>): RecyclerView.Adapter<ListSelectionRecyclerViewAdapter.ListSelectionViewHolder>() {
+class ListSelectionRecyclerViewAdapter(private val lists: ArrayList<TaskList>,
+                                       private val clickListener: ListSelectionRecyclerViewClickListener): RecyclerView.Adapter<ListSelectionRecyclerViewAdapter.ListSelectionViewHolder>() {
 
     override fun getItemCount(): Int = lists.size
 
@@ -21,6 +22,9 @@ class ListSelectionRecyclerViewAdapter(private val lists: ArrayList<TaskList>): 
     override fun onBindViewHolder(holder: ListSelectionViewHolder, position: Int) {
         holder.listTitle.text = lists[position].name
         holder.listPosition.text = (position + 1).toString()
+        holder.itemView.setOnClickListener{
+            clickListener.listItemClicked(lists[position])
+        }
     }
 
     fun addList(lists: TaskList) {
@@ -35,4 +39,8 @@ class ListSelectionRecyclerViewAdapter(private val lists: ArrayList<TaskList>): 
         var listTitle:    TextView      =       itemView.findViewById(R.id.itemString)
 
     }
+}
+
+interface  ListSelectionRecyclerViewClickListener {
+    fun listItemClicked(list: TaskList)
 }

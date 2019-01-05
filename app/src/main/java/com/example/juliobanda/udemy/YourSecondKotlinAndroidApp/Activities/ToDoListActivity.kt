@@ -1,8 +1,10 @@
 package com.example.juliobanda.udemy.YourSecondKotlinAndroidApp
 
 import android.content.DialogInterface
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Parcel
 import android.support.design.widget.FloatingActionButton
 import android.support.v7.app.AlertDialog
 import android.support.v7.widget.RecyclerView
@@ -10,16 +12,23 @@ import android.text.InputType
 import android.view.View
 import android.widget.EditText
 import com.example.juliobanda.udemy.R
+import com.example.juliobanda.udemy.YourSecondKotlinAndroidApp.Activities.ListDetailActivity
 import com.example.juliobanda.udemy.YourSecondKotlinAndroidApp.Adapters.ListSelectionRecyclerViewAdapter
+import com.example.juliobanda.udemy.YourSecondKotlinAndroidApp.Adapters.ListSelectionRecyclerViewClickListener
 import com.example.juliobanda.udemy.YourSecondKotlinAndroidApp.Managers.ListDataManager
 import com.example.juliobanda.udemy.YourSecondKotlinAndroidApp.Model.TaskList
 
-class ToDoListActivity : AppCompatActivity() {
+class ToDoListActivity : AppCompatActivity(), ListSelectionRecyclerViewClickListener {
+
+    companion object {
+        const val INTENT_LIST_KEY = "list"
+        const val LIST_DETAIL_REQUEST_CODE = 123
+    }
 
     private lateinit var listsRecyclerView:    RecyclerView
     private lateinit var floatingActionButton: FloatingActionButton
 
-    val listDataManager: ListDataManager = ListDataManager(this)
+    private val listDataManager: ListDataManager = ListDataManager(this)
 
     private val floatingButtonAction = { _: View ->
         showCreateListDialog()
@@ -32,10 +41,22 @@ class ToDoListActivity : AppCompatActivity() {
         val lists = listDataManager.readList()
 
         listsRecyclerView = findViewById(R.id.lists_recycler_view)
-        listsRecyclerView.adapter = ListSelectionRecyclerViewAdapter(lists)
+        listsRecyclerView.adapter = ListSelectionRecyclerViewAdapter(lists, this)
 
         floatingActionButton = findViewById(R.id.fab)
         floatingActionButton.setOnClickListener(floatingButtonAction)
+
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == LIST_DETAIL_REQUEST_CODE) {
+            data.let {
+                listDataManager.saveList(data!!.getParcelableExtra(INTENT_LIST_KEY))
+                updateList()
+            }
+        }
 
     }
 
@@ -61,10 +82,26 @@ class ToDoListActivity : AppCompatActivity() {
 
 
             dialog.dismiss()
+            showListDetail(list)
         }
 
         builder.create().show()
 
+    }
+
+    private fun showListDetail(list: TaskList) {
+        val listDetailIntent = Intent(this, ListDetailActivity::class.java)
+        listDetailIntent.putExtra(INTENT_LIST_KEY, list)
+        startActivityForResult(listDetailIntent, LIST_DETAIL_REQUEST_CODE)
+    }
+
+    override fun listItemClicked(list: TaskList) {
+        showListDetail(list)
+    }
+
+    fun updateList() {
+        val list = listDataManager.readList()
+        listsRecyclerView.adapter = ListSelectionRecyclerViewAdapter(list, this)
     }
 
 }

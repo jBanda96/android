@@ -3,6 +3,8 @@
     package="com.example.juliobanda.udemy">
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -14,14 +16,19 @@
         <activity android:name=".ListView.MainActivity" />
         <activity android:name=".ListView.ListView" />
         <activity android:name=".RecyclerView_CardView.RecyclerView" />
-        <activity android:name=".YourSecondKotlinAndroidApp.ToDoListActivity">
+        <activity android:name=".YourSecondKotlinAndroidApp.ToDoListActivity" />
+        <activity android:name=".YourSecondKotlinAndroidApp.Activities.ListDetailActivity" />
+        <activity android:name=".SharedPreferences.SharedPrefActivity" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".YourSecondKotlinAndroidApp.Activities.ListDetailActivity"></activity>
+        <activity android:name=".WorkingWithTables.WorkingWithTablesActivity" />
+        <activity android:name=".WorkingWithTables.WTVDetailActivity" />
+        <activity android:name=".HotelManzana.HotelManzanaActivity"></activity>
     </application>
 
 </manifest>

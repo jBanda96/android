@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="edit">Editar</string>
+    <string name="new_text">Texto Nuevo</string>
+    <string name="write_something">Escribe algo</string>
+    <string name="text">Texto</string>
+    <string name="cancel">Cancelar</string>
+    <string name="create">Crear</string>
+    <string name="go_back">Regresar</string>
+
+</resources>

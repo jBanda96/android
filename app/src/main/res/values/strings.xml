@@ -1,12 +1,17 @@
 <resources>
-    <string name="app_name">Udemy</string>
+    <string name="app_name">Android test</string>
 
     <string name="name_of_list">What is the name of your list?</string>
     <string name="create_list">Create</string>
     <string name="task_to_add">What is the task you want to add?</string>
     <string name="add_task">Add</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="more">More</string>
+    <string name="edit">Edit</string>
+    <string name="write_something">Write something</string>
+    <string name="text">text</string>
+    <string name="new_text">New Text</string>
+    <string name="cancel">Cancel</string>
+    <string name="create">Create</string>
+    <string name="go_back">Go back</string>
 
 </resources>

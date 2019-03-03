@@ -1,5 +1,6 @@
 package com.example.juliobanda.udemy.YourSecondKotlinAndroidApp
 
+import android.animation.ObjectAnimator
 import android.content.DialogInterface
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
@@ -10,7 +11,10 @@ import android.support.v7.app.AlertDialog
 import android.support.v7.widget.RecyclerView
 import android.text.InputType
 import android.view.View
+import android.view.animation.AnimationUtils
+import android.view.animation.BounceInterpolator
 import android.widget.EditText
+import android.widget.ImageView
 import com.example.juliobanda.udemy.R
 import com.example.juliobanda.udemy.YourSecondKotlinAndroidApp.Activities.ListDetailActivity
 import com.example.juliobanda.udemy.YourSecondKotlinAndroidApp.Adapters.ListSelectionRecyclerViewAdapter
@@ -25,13 +29,19 @@ class ToDoListActivity : AppCompatActivity(), ListSelectionRecyclerViewClickList
         const val LIST_DETAIL_REQUEST_CODE = 123
     }
 
-    private lateinit var listsRecyclerView:    RecyclerView
-    private lateinit var floatingActionButton: FloatingActionButton
+    private lateinit var listsRecyclerView:     RecyclerView
+    private lateinit var floatingActionButton:  FloatingActionButton
+    private lateinit var animatedImage:         ImageView
 
     private val listDataManager: ListDataManager = ListDataManager(this)
 
     private val floatingButtonAction = { _: View ->
         showCreateListDialog()
+
+        val animation = AnimationUtils.loadAnimation(this, R.anim.rotate)
+        animation.duration = 700
+        animatedImage.startAnimation(animation)
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,6 +55,18 @@ class ToDoListActivity : AppCompatActivity(), ListSelectionRecyclerViewClickList
 
         floatingActionButton = findViewById(R.id.fab)
         floatingActionButton.setOnClickListener(floatingButtonAction)
+
+        animatedImage = findViewById(R.id.animated_image_view)
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+//        val animator = ObjectAnimator.ofFloat(floatingActionButton, "translationY", 200f, 0f)
+//        animator.interpolator = BounceInterpolator()
+//        animator.duration = 500
+//        animator.start()
 
     }
 

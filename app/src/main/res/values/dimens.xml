@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="NORMAL_PADDING">8dp</dimen>
+    <dimen name="BIG_PADDING">16dp</dimen>
+
+</resources>

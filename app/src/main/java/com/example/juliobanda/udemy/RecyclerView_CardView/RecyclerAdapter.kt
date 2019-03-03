@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.example.juliobanda.udemy.R
 import kotlinx.android.synthetic.main.recycler_view_item.view.*
 
-class RecyclerAdapter(val array: ArrayList<String>, private val mContext: Context, val onClickListener: OnItemClickListener): RecyclerView.Adapter<RecyclerAdapter.MyViewHolder>() {
+class RecyclerAdapter(val array: ArrayList<String>, private val mContext: Context, private val onClickListener: OnItemClickListener): RecyclerView.Adapter<RecyclerAdapter.MyViewHolder>() {
 
     override fun getItemCount(): Int = array.size
 

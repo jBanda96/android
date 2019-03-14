@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Networking.NetworkingActivity">
+
+    <ProgressBar
+        android:id="@+id/networking_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/networking_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/networking_phone_number"
+        android:layout_alignParentTop="true"
+        app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
+
+    <EditText
+        android:id="@+id/networking_phone_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/networking_password"
+        android:hint="Cellphone"
+        android:inputType="phone"
+        android:textColor="@android:color/black" />
+
+    <EditText
+        android:id="@+id/networking_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/networking_go_button"
+        android:hint="Password"
+        android:inputType="numberPassword"
+        android:textColor="@android:color/black" />
+
+    <Button
+        android:id="@+id/networking_go_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="GO" />
+
+
+</RelativeLayout>

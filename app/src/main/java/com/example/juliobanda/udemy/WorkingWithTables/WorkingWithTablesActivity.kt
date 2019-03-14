@@ -5,21 +5,38 @@ import android.os.Bundle
 import android.support.v4.app.DialogFragment
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.DividerItemDecoration
+import android.support.v7.widget.RecyclerView
+import android.support.v7.widget.helper.ItemTouchHelper
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import com.example.juliobanda.udemy.R
 import kotlinx.android.synthetic.main.activity_working_with_tables.*
 
-class WorkingWithTablesActivity : AppCompatActivity(), LongClick, NoticeDialogListener {
+class WorkingWithTablesActivity : AppCompatActivity(), LongClick, NoticeDialogListener, ItemDragListener {
 
     companion object {
         const val wtvDetailText = "WTV_DETAIL_TEXT"
     }
 
     private lateinit var textAdapter: WTVAdapter
+    private lateinit var itemTouchHelper: ItemTouchHelper
+
+    private val scrollViewOnScrollListener = object : RecyclerView.OnScrollListener() {
+        override fun onScrolled(recyclerView: RecyclerView?, dx: Int, dy: Int) {
+            super.onScrolled(recyclerView, dx, dy)
+            textAdapter.scrollDirection = if (dy > 0) WTVAdapter.ScrollDirection.DOWN else WTVAdapter.ScrollDirection.UP
+        }
+    }
 
     private var itemsArray = arrayListOf(
+            "This is very simple text",
+            "Long text goes here, Long text goes here, Long text goes here",
+            "Some text goes here Some text goes here Some text goes here Some text goes here Some text goes here",
+            "Very looooooooooooong text goes here Very looooooooooooong text goes here Very looooooooooooong text goes here Very looooooooooooong text goes here Very looooooooooooong text goes here Very looooooooooooong text goes here Very looooooooooooong text goes here Very looooooooooooong text goes here Very looooooooooooong text goes here Very looooooooooooong text goes here Very looooooooooooong text goes here Very looooooooooooong text goes here",
+            "This is very simple text",
+            "Long text goes here, Long text goes here, Long text goes here",
+            "Some text goes here Some text goes here Some text goes here Some text goes here Some text goes here",
+            "Very looooooooooooong text goes here Very looooooooooooong text goes here Very looooooooooooong text goes here Very looooooooooooong text goes here Very looooooooooooong text goes here Very looooooooooooong text goes here Very looooooooooooong text goes here Very looooooooooooong text goes here Very looooooooooooong text goes here Very looooooooooooong text goes here Very looooooooooooong text goes here Very looooooooooooong text goes here",
             "This is very simple text",
             "Long text goes here, Long text goes here, Long text goes here",
             "Some text goes here Some text goes here Some text goes here Some text goes here Some text goes here",
@@ -33,12 +50,15 @@ class WorkingWithTablesActivity : AppCompatActivity(), LongClick, NoticeDialogLi
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = "Editing table"
 
-        textAdapter = WTVAdapter(itemsArray, this)
+        textAdapter = WTVAdapter(itemsArray, this, this)
 
         WTRecyclerView.apply {
             adapter = textAdapter
+            addOnScrollListener(scrollViewOnScrollListener)
             addItemDecoration(DividerItemDecoration(this@WorkingWithTablesActivity, DividerItemDecoration.VERTICAL))
         }
+
+        setUpItemTouchHelper()
 
     }
 
@@ -52,7 +72,7 @@ class WorkingWithTablesActivity : AppCompatActivity(), LongClick, NoticeDialogLi
             when (item?.itemId) {
 
                 R.id.wtvEdit -> {
-                    Toast.makeText(this, "Editar", Toast.LENGTH_SHORT).show()
+                    textAdapter.orderButton = !textAdapter.orderButton
                     true
                 }
 
@@ -93,5 +113,13 @@ class WorkingWithTablesActivity : AppCompatActivity(), LongClick, NoticeDialogLi
 
     override fun onDialogNegativeClick() {}
 
+    private fun setUpItemTouchHelper(){
+        itemTouchHelper = ItemTouchHelper(ItemTouchHelperCallback(textAdapter))
+        itemTouchHelper.attachToRecyclerView(WTRecyclerView)
+    }
+
+    override fun onItemDrag(viewHolder: RecyclerView.ViewHolder) {
+        itemTouchHelper.startDrag(viewHolder)
+    }
 
 }

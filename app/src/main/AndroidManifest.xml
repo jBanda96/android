@@ -28,7 +28,9 @@
         </activity>
         <activity android:name=".WorkingWithTables.WorkingWithTablesActivity" />
         <activity android:name=".WorkingWithTables.WTVDetailActivity" />
-        <activity android:name=".HotelManzana.HotelManzanaActivity"></activity>
+        <activity android:name=".HotelManzana.HotelManzanaActivity" />
+        <activity android:name=".HotelManzana.HotelManzanaRoomTypeActivity" />
+        <activity android:name=".Networking.NetworkingActivity"></activity>
     </application>
 
 </manifest>

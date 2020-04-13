@@ -93,4 +93,16 @@ class MemberActivity : AppCompatActivity(), MemberContract.View {
   override fun showErrorRetrievingMember() {
     Toast.makeText(this, getString(R.string.error_retrieving_member), Toast.LENGTH_SHORT).show()
   }
+
+  override fun hideName() {
+    memberName.visibility = View.GONE
+  }
+
+  override fun hideEmail() {
+    memberEmailContainer.visibility = View.GONE
+  }
+
+  override fun hideCompany() {
+    memberCompanyContainer.visibility = View.GONE
+  }
 }

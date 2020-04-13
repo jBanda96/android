@@ -8,8 +8,9 @@
     <dimen name="type_text_size">14sp</dimen>
     <dimen name="padding_half">8dp</dimen>
     <dimen name="padding_double">32dp</dimen>
-    <dimen name="detail_avatar_size">144dp</dimen>
+    <dimen name="detail_avatar_size">180dp</dimen>
     <dimen name="detail_text_size">16sp</dimen>
     <dimen name="detail_avatar_container_size">200dp</dimen>
     <dimen name="detail_name_text_size">28sp</dimen>
+    <dimen name="detail_name_text_size_smaller">20sp</dimen>
 </resources>

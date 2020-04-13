@@ -6,14 +6,14 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:id="@+id/linearLayout4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:id="@+id/memberAvatarContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
         android:background="@color/colorAccent"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal"
-        android:padding="@dimen/padding_double"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_standard"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -26,13 +26,12 @@
 
         <TextView
             android:id="@+id/memberName"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
             android:layout_margin="@dimen/padding_standard"
-            android:layout_weight="1"
             android:gravity="center"
-            android:textSize="@dimen/detail_name_text_size"
+            android:lines="3"
+            android:textSize="@dimen/detail_name_text_size_smaller"
             tools:text="Tutan Khamon" />
 
     </LinearLayout>
@@ -45,8 +44,8 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
+        app:layout_constraintStart_toEndOf="@id/memberAvatarContainer"
+        app:layout_constraintTop_toTopOf="parent"
         tools:layout_conversion_absoluteHeight="531dp"
         tools:layout_conversion_absoluteWidth="411dp">
 

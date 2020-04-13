@@ -35,6 +35,9 @@ interface MemberContract {
   interface View {
     fun showMember(member: Member)
     fun showErrorRetrievingMember()
+    fun hideName()
+    fun hideEmail()
+    fun hideCompany()
   }
 
   interface Presenter {

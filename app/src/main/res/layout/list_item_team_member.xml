@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/teamMemberAvatar"
+        android:layout_width="@dimen/list_item_size"
+        android:layout_height="@dimen/list_item_size"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:src="@mipmap/ic_launcher"
+        android:contentDescription="@string/contentDescription_teamMemberAvatar"/>
+
+    <TextView
+        android:id="@+id/teamMemberLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/teamMemberAvatar"
+        android:layout_centerVertical="true"
+        android:padding="@dimen/padding_standard"
+        android:textSize="@dimen/login_text_size"
+        tools:text="login" />
+
+    <TextView
+        android:id="@+id/teamMemberType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/teamMemberLogin"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@id/teamMemberLogin"
+        android:paddingStart="@dimen/padding_standard"
+        android:paddingEnd="@dimen/padding_standard"
+        android:textSize="@dimen/type_text_size"
+        tools:text="Type"
+        android:gravity="end"/>
+
+</RelativeLayout>

@@ -31,4 +31,20 @@
     <string name="december">December</string>
     <string name="complete_date">%1s %2d, %3d</string>
 
+    <string name="team_hint">Enter a team name</string>
+    <string name="team_button">SHOW MEMBERS</string>
+    <string name="default_team_name">raywenderlich</string>
+    <string name="error_retrieving_team">Error retrieving team</string>
+    <string name="error_retrieving_member">Error retrieving member</string>
+    <string name="error_team_name_empty">Team name cannot be empty</string>
+    <string name="contentDescription_teamMemberAvatar">Team member avatar</string>
+
+    <string name="label_name">name:</string>
+    <string name="label_login">username:</string>
+    <string name="label_company">company:</string>
+    <string name="label_email">email:</string>
+    <string name="label_type">type:</string>
+
+    <string name="empty_members_list_for">No members found for team %1s</string>
+
 </resources>

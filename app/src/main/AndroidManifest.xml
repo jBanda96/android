@@ -30,7 +30,9 @@
         <activity android:name=".WorkingWithTables.WTVDetailActivity" />
         <activity android:name=".HotelManzana.HotelManzanaActivity" />
         <activity android:name=".HotelManzana.HotelManzanaRoomTypeActivity" />
-        <activity android:name=".Networking.NetworkingActivity"></activity>
+        <activity android:name=".Networking.NetworkingActivity"/>
+        <activity android:name=".Layouts.ui.teammembers.TeamMembersActivity"/>
+        <activity android:name=".Layouts.ui.member.MemberActivity"/>
     </application>
 
 </manifest>

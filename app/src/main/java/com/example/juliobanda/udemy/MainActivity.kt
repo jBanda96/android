@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.DividerItemDecoration
 import com.example.juliobanda.udemy.HotelManzana.HotelManzanaActivity
+import com.example.juliobanda.udemy.Layouts.ui.teammembers.TeamMembersActivity
 import com.example.juliobanda.udemy.Networking.NetworkingActivity
 import com.example.juliobanda.udemy.WorkingWithTables.WorkingWithTablesActivity
 import kotlinx.android.synthetic.main.activity_main2.*
@@ -25,7 +26,8 @@ class MainActivity : AppCompatActivity() {
         val titles = arrayListOf(
                 Pair("Working with tables", WorkingWithTablesActivity::class.java),
                 Pair("Hotel Manzana", HotelManzanaActivity::class.java),
-                Pair("Networking", NetworkingActivity::class.java)
+                Pair("Networking", NetworkingActivity::class.java),
+                Pair("Layouts", TeamMembersActivity::class.java)
         )
         val mainAdapter = MainAdapter(titles, onClickMainListener)
 
